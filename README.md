@@ -38,6 +38,25 @@ javac *.java
 - **AgentFactory** : Permet de créer des instances d'agents en fonction de leur type.
 - **Simulator** : Classe principale qui gère la simulation. Elle contient une instance de la grille, des agents et des stratégies. Elle gère également le déroulement de la simulation.
 
+## 📦 Packaging
+Pour créer un exécutable, vous pouvez utiliser les commande suivantes :
+1. Créez un fichier manifeste avec le contenu suivant :
+```shell
+Main-Class: Main
+```
+2. Compilez les fichiers Java avec la commande suivante :
+```shell
+javac -d bin *.java
+```
+3. Créez un fichier jar avec la commande suivante :
+```shell
+jar cfm ../SEProjet.jar ../manifest.txt -C bin .
+```
+4. Exécutez le fichier jar avec la commande suivante :
+```shell
+java -jar SEProjet.jar
+```
+
 ## ✍️ Auteurs
 
 👤 **VALLEIX Benjamin**
@@ -53,4 +72,4 @@ javac *.java
 
 ## 📝 License
 
-Copyright © 2023-2024
+Copyright © 2024
