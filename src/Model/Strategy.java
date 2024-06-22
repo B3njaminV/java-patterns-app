@@ -1,5 +1,5 @@
 package Model;
 
 public interface Strategy {
-    void execute(Cell cell);
+    void execute(Cellule cellule);
 }

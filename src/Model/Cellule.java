@@ -3,7 +3,7 @@ package Model;
 import java.util.List;
 import java.util.stream.Collectors;
 
-public class Cell extends Agent {
+public class Cellule extends Agent {
     public enum State {
         HEALTHY,
         INFECTED
@@ -12,7 +12,7 @@ public class Cell extends Agent {
     private State state;
     private Strategy strategy;
 
-    public Cell(Environment environment, State state) {
+    public Cellule(Environment environment, State state) {
         super(environment);
         this.state = state;
         setStrategy(state);
@@ -24,7 +24,7 @@ public class Cell extends Agent {
     }
 
     @Override
-    public void act() {
+    public void action() {
         // Déplacer la cellule
         if (state == State.HEALTHY) {
             moveToSafePosition();
@@ -66,20 +66,18 @@ public class Cell extends Agent {
         List<Agent> neighbors = getNeighbors();
         boolean isNearVirus = neighbors.stream().anyMatch(agent -> agent instanceof Virus);
         if (isNearVirus) {
-            // Move to a random position if near a virus
             x = random.nextInt(environment.getWidth());
             y = random.nextInt(environment.getHeight());
         }
     }
 
     private void spreadInfection() {
-        // Infect neighbors
         List<Agent> neighbors = getNeighbors();
         for (Agent neighbor : neighbors) {
-            if (neighbor instanceof Cell) {
-                Cell cell = (Cell) neighbor;
-                if (cell.getState() == State.HEALTHY) {
-                    cell.setState(State.INFECTED);
+            if (neighbor instanceof Cellule) {
+                Cellule cellule = (Cellule) neighbor;
+                if (cellule.getState() == State.HEALTHY) {
+                    cellule.setState(State.INFECTED);
                 }
             }
         }

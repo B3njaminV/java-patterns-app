@@ -4,13 +4,14 @@ import java.util.List;
 
 public class InfectedStrategy implements Strategy {
     @Override
-    public void execute(Cell cell) {
-        List<Agent> neighbors = cell.getNeighbors();
+    public void execute(Cellule cellule) {
+        // Les cellules infectées cherchent à propager l'infection
+        List<Agent> neighbors = cellule.getNeighbors();
         for (Agent neighbor : neighbors) {
-            if (neighbor instanceof Cell) {
-                Cell neighborCell = (Cell) neighbor;
-                if (neighborCell.getState() == Cell.State.HEALTHY) {
-                    neighborCell.setState(Cell.State.INFECTED);
+            if (neighbor instanceof Cellule) {
+                Cellule neighborCell = (Cellule) neighbor;
+                if (neighborCell.getState() == Cellule.State.HEALTHY) {
+                    neighborCell.setState(Cellule.State.INFECTED);
                 }
             }
         }

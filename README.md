@@ -20,6 +20,10 @@ Voici notre projet de système multi-agents réalisé dans le cadre du cours de 
 javac *.java
 ```
 3. Exécutez le programme avec java Main.
+4. Ou sinon sous IntelliJ, vous pouvez exécuter le programme en cliquant sur le bouton "Run" en haut à droite de l'écran.
+
+> [!WARNING]  
+> Si jamais les ressources (dossier img) ne sont pas trouvées, c'est peut-être parce que le chemin d'accès est incorrect. Pour corriger cela, vous devrez définir à nouveau le dossier img comme ressource dans votre IDE.
 
 ## 🚀 Patterns
 
@@ -29,10 +33,10 @@ javac *.java
 - **State** : Implémenté implicitement par la stratégie, où l'état de la cellule change et la stratégie appropriée est appliquée.
 
 ## 📦 Quelques explications sur les conceptions de certaines classes du projet
-- HealthyStrategy : Les cellules saines évitent les virus en se déplaçant à une position aléatoire si elles détectent un virus à proximité.
-- InfectedStrategy : Les cellules infectées propagent l'infection aux cellules saines voisines.
-- AgentFactory : Permet de créer des instances d'agents en fonction de leur type.
-- Simulator : Classe principale qui gère la simulation. Elle contient une instance de la grille, des agents et des stratégies. Elle gère également le déroulement de la simulation.
+- **HealthyStrategy** : Les cellules saines évitent les virus en se déplaçant à une position aléatoire si elles détectent un virus à proximité.
+- **InfectedStrategy** : Les cellules infectées propagent l'infection aux cellules saines voisines.
+- **AgentFactory** : Permet de créer des instances d'agents en fonction de leur type.
+- **Simulator** : Classe principale qui gère la simulation. Elle contient une instance de la grille, des agents et des stratégies. Elle gère également le déroulement de la simulation.
 
 ## ✍️ Auteurs
 

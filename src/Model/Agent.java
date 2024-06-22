@@ -16,7 +16,7 @@ public abstract class Agent {
     }
 
     public abstract void perceive();
-    public abstract void act();
+    public abstract void action();
 
     public int getX() {
         return x;

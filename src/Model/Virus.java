@@ -14,7 +14,7 @@ public class Virus extends Agent {
     }
 
     @Override
-    public void act() {
+    public void action() {
         // Le virus se déplace de manière aléatoire
         x = random.nextInt(environment.getWidth());
         y = random.nextInt(environment.getHeight());
@@ -22,10 +22,10 @@ public class Virus extends Agent {
         // Infecter les cellules saines à proximité
         List<Agent> neighbors = getNeighbors();
         for (Agent neighbor : neighbors) {
-            if (neighbor instanceof Cell) {
-                Cell cell = (Cell) neighbor;
-                if (cell.getState() == Cell.State.HEALTHY) {
-                    cell.setState(Cell.State.INFECTED);
+            if (neighbor instanceof Cellule) {
+                Cellule cellule = (Cellule) neighbor;
+                if (cellule.getState() == Cellule.State.HEALTHY) {
+                    cellule.setState(Cellule.State.INFECTED);
                 }
             }
         }

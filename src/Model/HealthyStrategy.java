@@ -4,14 +4,13 @@ import java.util.List;
 
 public class HealthyStrategy implements Strategy {
     @Override
-    public void execute(Cell cell) {
+    public void execute(Cellule cellule) {
         // Les cellules saines cherchent à éviter les virus
-        List<Agent> neighbors = cell.getNeighbors();
+        List<Agent> neighbors = cellule.getNeighbors();
         boolean isNearVirus = neighbors.stream().anyMatch(agent -> agent instanceof Virus);
         if (isNearVirus) {
-            // Move to a random position if near a virus
-            cell.x = cell.random.nextInt(cell.environment.getWidth());
-            cell.y = cell.random.nextInt(cell.environment.getHeight());
+            cellule.x = cellule.random.nextInt(cellule.environment.getWidth());
+            cellule.y = cellule.random.nextInt(cellule.environment.getHeight());
         }
     }
 }

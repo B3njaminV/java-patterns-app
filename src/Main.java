@@ -1,4 +1,4 @@
-import View.Simulator;
+import Controller.Simulator;
 
 public class Main {
     public static void main(String[] args) {
