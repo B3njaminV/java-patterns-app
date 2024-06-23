@@ -9,6 +9,10 @@
 
 Voici notre projet de système multi-agents réalisé dans le cadre du cours de Software Engineering.
 
+Les différentes classes sont implémentées dans le dossier src, mais on pourrait les séparer en deux catégories :
+* la librairie générique avec les classes : `Agent, AgentFactory, Environnement et Strategy`.
+* le cas pratique visualisant la propagation de cellules infectées en ajoutant les classes : `Virus, Cellule, InfectedStrategy et HealthyStrategy`.
+
 ## 📍 Prérequis pour la compilation
 
 - Java
