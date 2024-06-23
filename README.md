@@ -5,9 +5,31 @@
 
 ---
 
-## 📝 Description
+## 📝 Introduction
 
-Voici notre projet de système multi-agents réalisé dans le cadre du cours de Software Engineering.
+Les systèmes multi-agents sont des ensembles d'entités autonomes appelées agents qui interagissent pour atteindre des objectifs communs ou individuels. Chaque agent dispose de capacités de raisonnement et d'action, lui permettant de prendre des décisions autonomes en fonction de son environnement et des informations disponibles.
+
+Ce projet propose de concevoir une bibliothèque de simulation de systèmes multi-agents, illustrée par un exemple concret de propagation de virus. Le but est d'utiliser des design patterns pour assurer la flexibilité et la maintenabilité du code.
+
+## 🚀 Solution Proposée
+
+### Présentation de la Librairie
+
+La bibliothèque proposée pour la simulation de systèmes multi-agents se compose de plusieurs classes clés, réparties dans les packages `Model`, `Controller` et `View`.
+
+- **Model** :
+    - `Agent` : Représente un agent général dans le système.
+    - `Cell` : Représente une cellule qui peut être infectée.
+    - `Virus` : Représente un virus capable d'infecter des cellules.
+
+- **Controller** :
+    - `Strategy` : Interface pour les différentes stratégies d'action des agents.
+    - `HealthyStrategy` : Stratégie pour les agents non infectés.
+    - `InfectedStrategy` : Stratégie pour les agents infectés.
+    - `Simulator` : Gère la simulation en appliquant les différentes stratégies aux agents.
+
+- **View** :
+    - `SimulatorView` : Affiche l'état actuel de la simulation.
 
 Les différentes classes sont implémentées dans le dossier src, mais on pourrait les séparer en deux catégories :
 * la librairie générique avec les classes : `Agent, AgentFactory, Environnement et Strategy`.
@@ -81,6 +103,11 @@ java -jar Executable.jar
 > Vous pourrez trouver un fichier jar déjà compilé dans les releases du projet mais aussi à la racine du projet.
 > Vous pouvez créer un fichier jar en suivant les étapes ci-dessus.
 
+## 🔍 Perspectives d'améliorations
+
+1. **Amélioration des stratégies** : Utilisation de stratégies plus complexes pour les agents, comme la mutation des virus.
+
+2. **Design UI** : Améliorer l'interface avec des fonctionnalités telles la gestion des différents types de cellules.
 
 ## ✍️ Auteurs
 
