@@ -1,0 +1,68 @@
+@startuml
+
+package Model {
+    class Agent {
+        - boolean infected
+        + act()
+    }
+
+    class Cell {
+        - boolean infected
+        + isInfected() : boolean
+        + setInfected(infected : boolean)
+    }
+
+    class Virus {
+        + infect(cell : Cell)
+    }
+}
+
+package Controller {
+    class Strategy {
+        + execute(agent : Agent)
+    }
+
+    class InfectedStrategy extends Strategy {
+        + execute(agent : Agent)
+    }
+
+    class HealthyStrategy extends Strategy {
+        + execute(agent : Agent)
+    }
+
+    class Simulator {
+        - static Simulator instance
+        - Environment environment
+        + run()
+        + getInstance() : Simulator
+    }
+}
+
+package View {
+    class SimulatorView {
+        + display(environment : Environment)
+    }
+}
+
+class Environment {
+    - List<Cell> cells
+    - List<Agent> agents
+    + getCells() : List<Cell>
+    + getAgents() : List<Agent>
+}
+
+class Main {
+    + main(args : String[])
+}
+
+Model.Agent -right-> Controller.Strategy : "uses"
+Model.Agent -down-> Model.Cell : "interacts with"
+Model.Cell <|-- Model.Agent : "contains"
+Controller.Strategy <|-- Controller.InfectedStrategy
+Controller.Strategy <|-- Controller.HealthyStrategy
+Controller.Simulator -right-> Environment : "controls"
+Controller.Simulator *-- Controller.Simulator : "singleton"
+Controller.Simulator -down-> View.SimulatorView : "updates"
+View.SimulatorView --> Environment : "displays"
+
+@enduml
